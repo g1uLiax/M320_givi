@@ -2,24 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static int add(int a, int b) {
-        return a+b;
-    }
-    private static int substract(int a, int b) {
-        return a - b;
-    }
-    private static int multiply(int a, int b) {
-        return a*b;
-    }
-    private static int divide(int a, int b) {
-        if(b != 0) {
-            return a / b;
-        } else {
-            System.out.println("Divide by 0 not allowed");
-            return 0;
-        }
-    }
     public static void main(String[] args) {
+        Calculator calc = new Calculator();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Calculator+");
         String repeat = "y";
@@ -33,19 +17,19 @@ public class Main {
 
             switch (operation) {
                 case "+":
-                    System.out.println("Result: " + add(a, b));
+                    System.out.println("Result: " + calc.add(a, b));
                     break;
                 case "-":
-                    System.out.println("Result: " + substract(a, b));
+                    System.out.println("Result: " + calc.substract(a, b));
                     break;
                 case "*":
-                    System.out.println("Result: " + multiply(a, b));
+                    System.out.println("Result: " + calc.multiply(a, b));
                     break;
                 case "x":
-                    System.out.println("Result: " + multiply(a, b));
+                    System.out.println("Result: " + calc.multiply(a, b));
                     break;
                 case "/":
-                    System.out.println("Result: " + divide(a, b));
+                    System.out.println("Result: " + calc.divide(a, b));
                     break;
                 default:
                     System.out.println("Invalid operation!");
