@@ -23,7 +23,6 @@ public class Book extends Media{
         this.pages = pages;
     }
 
-    @Override
     public String toString() {
         return super.toString() +
                 "pages=" + pages +
