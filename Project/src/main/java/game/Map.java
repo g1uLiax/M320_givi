@@ -1,9 +1,11 @@
+package game;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-public class Game {
+public class Map {
     private int x;
     private int y;
     private int section = 1;
@@ -11,7 +13,7 @@ public class Game {
     private int[][] map;
     private List<int[][]> mapSections;
 
-    public Game() throws IOException {
+    public Map() throws IOException {
         mapSections = List.of(getMap("resources/map/part1.txt"), getMap("resources/map/part1.txt"));
         map = mapSections.get(section - 1);
     }
