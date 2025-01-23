@@ -20,6 +20,10 @@ public class Media {
         this.year = year;
     }
 
+    /**
+     * The print function is responsible for printing all
+     * the Attributes of a Media.
+     */
     public void print() {
         System.out.println("Title: " + title +
                 ", Year: " + year +

@@ -17,6 +17,10 @@ public class CD extends Media{
         this.bandname = bandname;
     }
 
+    /**
+     * The print function which is inherited from the Media class is responsible for printing all
+     * the Attributes of a CD.
+     */
     @Override
     public void print() {
         System.out.println("CD - Title: " + getTitle() +

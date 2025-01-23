@@ -32,6 +32,10 @@ public class Main {
         }
     }
 
+    /**
+     * In the main function the TUI is created.
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Manager manager = new Manager();

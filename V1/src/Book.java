@@ -21,6 +21,10 @@ public class Book extends Media{
         this.num_ISBN = num_ISBN;
     }
 
+    /**
+     * The print function which is inherited from the Media class is responsible for printing all
+     * the Attributes of a book.
+     */
     public void print() {
         System.out.println("Book - Title: " + getTitle() +
                 ", Year: " + getYear() +

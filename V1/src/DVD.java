@@ -18,6 +18,10 @@ public class DVD extends Media{
         this.lengthInMinutes = lengthInMinutes;
     }
 
+    /**
+     * The print function which is inherited from the Media class is responsible for printing all
+     * the Attributes of a DVD.
+     */
     @Override
     public void print() {
         System.out.println("DVD - Title: " + getTitle() +
@@ -33,6 +37,7 @@ public class DVD extends Media{
     public void setLengthInMinutes(int lengthInMinutes) {
         this.lengthInMinutes = lengthInMinutes;
     }
+
    @Override
     public String toString() {
         return super.toString() +
