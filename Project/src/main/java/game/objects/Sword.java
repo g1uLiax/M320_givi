@@ -1,4 +1,9 @@
 package game.objects;
 
-public class Sword {
+import java.io.IOException;
+
+public class Sword extends Item {
+    public Sword(String path) throws IOException {
+        super(path);
+    }
 }
