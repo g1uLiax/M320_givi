@@ -3,6 +3,8 @@ package game;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameField {
@@ -15,12 +17,17 @@ public class GameField {
 
     private int[][] map;
     private List<int[][]> field;
+    private static ArrayList<Integer> notMovable = new ArrayList<>();
 
     public GameField() throws IOException {
         /*
         field = List.of(getMap("resources/map/part1.txt"));
         map = field.get(section);*/
-        this.map = getMap("C:\\VSC\\school\\M320_givi\\Project\\src\\main\\resources\\map\\part1.txt");
+        this.map = getMap("C:\\git\\M320_givi\\Project\\src\\main\\resources\\map\\part1.txt");
+        notMovable.add(2);
+        notMovable.add(3);
+        notMovable.add(4);
+        notMovable.add(5);
     }
 
     private int[][] getMap(String filePath) throws IOException {
@@ -80,7 +87,7 @@ public class GameField {
             System.out.println("index out of bound");
         }
 
-        if (nextPos == 2 || nextPos == 3 ) {
+        if (notMovable.contains(nextPos)) {
             System.out.println("cant move");
         } else {
             map[y][x] -= player;

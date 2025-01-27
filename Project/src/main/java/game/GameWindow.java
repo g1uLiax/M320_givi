@@ -22,18 +22,21 @@ public class GameWindow extends JFrame implements Displayable {
     private int scale;
     private Inventory inventory;
     private BufferedImage displayArea;
-    private BufferedImage displayInventory;
     private final Map<Integer, Runnable> inputMap;
     private final List<BufferedImage> imageList;
     private ArrayList<Character> entities;
 
-    public GameWindow(GameField map, Inventory inventory) throws IOException {
+    public GameWindow(GameField map) throws IOException {
         this.map = map;
-        this.inventory = inventory;
-        BufferedImage floor = loadImage("C:\\VSC\\school\\M320_givi\\Project\\src\\main\\resources\\images\\floor.png");
-        BufferedImage player = loadImage("C:\\VSC\\school\\M320_givi\\Project\\src\\main\\resources\\images\\player.png");
-        BufferedImage enemy = loadImage("C:\\VSC\\school\\M320_givi\\Project\\src\\main\\resources\\images\\nom.png");
-        BufferedImage friend = loadImage("C:\\VSC\\school\\M320_givi\\Project\\src\\main\\resources\\images\\friend.png");
+        this.inventory = new Inventory(map.getCols());
+
+        BufferedImage floor = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\floor.png");
+        BufferedImage player = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\player.png");
+        BufferedImage enemy = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\nom.png");
+        BufferedImage friend = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\friend.png");
+        BufferedImage tree = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\tree.png");
+        BufferedImage stump = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\stump.png");
+        BufferedImage playerArmored = loadImage("C:\\git\\M320_givi\\Project\\src\\main\\resources\\images\\playerarmored.png");
 
         this.scale = floor.getWidth();
         this.entities = new ArrayList<>();
@@ -43,7 +46,7 @@ public class GameWindow extends JFrame implements Displayable {
 
         inputMap = Map.of(KeyEvent.VK_UP, map::moveUp, KeyEvent.VK_DOWN, map::moveDown,
                 KeyEvent.VK_RIGHT, map::moveRight, KeyEvent.VK_LEFT, map::moveLeft, KeyEvent.VK_E, map::interact);
-        imageList = List.of(floor, player, enemy, friend);
+        imageList = List.of(floor, player, enemy, friend, tree, stump, playerArmored);
 
         initInput();
         initOutput();
@@ -60,7 +63,6 @@ public class GameWindow extends JFrame implements Displayable {
                 }
             }
         });
-
     }
 
     private void initOutput() {
@@ -68,6 +70,7 @@ public class GameWindow extends JFrame implements Displayable {
                 BufferedImage.TYPE_INT_ARGB);
 
         this.getContentPane().add(new JLabel(new ImageIcon(displayArea)));
+        //this.getContentPane().add(new JLabel(new ImageIcon(inventory.initInventory(map.getCols(), scale))));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         this.setTitle("Game");
