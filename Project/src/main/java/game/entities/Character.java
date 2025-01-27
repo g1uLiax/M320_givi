@@ -7,21 +7,25 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Character implements Displayable {
+/**
+ * Parent Class Character which implements the Interface Displayable is
+ * for all Entities in the Game 
+ */
+public class Character {
     private String name;
     private String path;
     private BufferedImage image;
 
-    public Character(String name, String path) throws IOException {
+    /**
+     * Super Params of Character
+     * @param name          Name of the Character
+     * @param image         Image of the Character
+     * @throws IOException  Throws IOException in case file cant be found
+     */
+    public Character(String name, BufferedImage image) throws IOException {
         this.name = name;
-        image = loadImage(path);
+        image = image;
     }
-
-    public BufferedImage loadImage(String path) throws IOException {
-        File file = new File(path);
-        return ImageIO.read(file);
-    }
-
     public void fight() {
 
     }

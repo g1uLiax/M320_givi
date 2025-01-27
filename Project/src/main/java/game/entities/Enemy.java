@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Enemy extends Character {
 
-    public Enemy(String name, String path) throws IOException {
-        super(name, path);
+    public Enemy(String name, BufferedImage image) throws IOException {
+        super(name, image);
     }
 }

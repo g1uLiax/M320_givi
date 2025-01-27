@@ -7,8 +7,8 @@ import java.io.IOException;
 public class Friend extends Character {
 
 
-    public Friend(String name, String path) throws IOException {
-        super(name, path);
+    public Friend(String name, BufferedImage image) throws IOException {
+        super(name, image);
     }
 
     @Override
